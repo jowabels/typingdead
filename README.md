@@ -1,4 +1,3 @@
-# typingdead
 
 Typing Dead Game
 ===========
