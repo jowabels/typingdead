@@ -9,10 +9,3 @@ class Word:
     textFile.close()
     return listOfWords
 
-def main():
-  myWord = Word()
-  print(myWord.getListOfWords())
-  
-
-if __name__ == "__main__":
-  main()
