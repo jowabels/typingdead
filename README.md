@@ -16,5 +16,4 @@ Please format your files to follow the file name format:
 
 	{author name}_{code filename/description}.py
 
-
-
+For code that imports other code, please put the whole group of files in a separate folder.
