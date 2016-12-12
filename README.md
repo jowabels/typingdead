@@ -10,5 +10,11 @@ in the screen before they hit the bottom. Then butcher them enemies afterwards.
 
 This is to showcase synchornization and threading methods.
 
+Contributor Instructions
+--------------------
+Please format your files to follow the file name format:
+
+	{author name}_{code filename/description}.py
+
 
 
