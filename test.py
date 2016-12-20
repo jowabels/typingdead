@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-# CS 140 game showcasing threading and synchronization
-
 from curses import *
 import random, time
 import threading
