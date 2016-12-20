@@ -34,8 +34,8 @@ class WordGenerator(object):
 	
 class screen(object):
 	def __init__(self, wpm, difficulty):
-		self.gendiff = float(wpm)
-		self.speeddiff = float(difficulty)
+		self.gendiff = float(wpm) # word generation
+		self.speeddiff = float(difficulty) # falling speed
 		self.screenwords = []
 		self.bg = " "
 
@@ -59,7 +59,7 @@ class screen(object):
 				stdscr.addstr(y, x, self.bg, color_pair(1))
 
 	def animatescreen(self, word, stdscr):
-		s.initializescreen(stdscr)
+		self.initializescreen(stdscr)
 		scrlength = stdscr.getmaxyx()
 
 		self.screenwords.append(word)
