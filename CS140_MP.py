@@ -251,44 +251,46 @@ class AnimatorThread(threading.Thread):						# thread for animation
 
 # MAIN PROGRAM
 
-start = welcome()								# show welcome screen
-start.fetchdata()								# fetch data from welcome screen
+def main():
+	start = welcome()								# show welcome screen
+	start.fetchdata()								# fetch data from welcome screen
 
-g = WordGenerator(start.ngram)					# initialize objects from difficulty settings
-s = screen(start.wpm, start.difficulty)
-w = wordbuffer()
+	g = WordGenerator(start.ngram)					# initialize objects from difficulty settings
+	s = screen(start.wpm, start.difficulty)
+	w = wordbuffer()
 
-g.getdictionary()								# get dictionary and filter words
-g.filterwords()
+	g.getdictionary()								# get dictionary and filter words
+	g.filterwords()
 
-stdscr = initscr()								# initialize screen to be animated
-s.initializescreen(stdscr, g)					# pass dynamic attributes to object s
+	stdscr = initscr()								# initialize screen to be animated
+	s.initializescreen(stdscr, g)					# pass dynamic attributes to object s
 
-genthread = GeneratorThread(g, w, s)			# thread instances
-animthread = AnimatorThread(w, stdscr)
-listener = listener(s, stdscr, w)
+	genthread = GeneratorThread(g, w, s)			# thread instances
+	animthread = AnimatorThread(w, stdscr)
+	listener = listener(s, stdscr, w)
 
-threadlist = []						
+	threadlist = []						
 
-genthread.start()								# start threads
-animthread.start()
-listener.start()
+	genthread.start()								# start threads
+	animthread.start()
+	listener.start()
 
-threadlist.append(genthread)					# update thread list
-threadlist.append(animthread)
-threadlist.append(listener)
+	threadlist.append(genthread)					# update thread list
+	threadlist.append(animthread)
+	threadlist.append(listener)
 
-for thread in threadlist:						# wait for threads to finish (when 10 mistakes are done)
-	thread.join()
+	for thread in threadlist:						# wait for threads to finish (when 10 mistakes are done)
+		thread.join()
 
-stdscr.clear()									# show closing screen (results)
-bye = closing()
-bye.showresults(s)
+	stdscr.clear()									# show closing screen (results)
+	bye = closing()
+	bye.showresults(s)
 
-stdscr.getkey()									# wait for keyboard and exit
-endwin()
+	stdscr.getkey()									# wait for keyboard and exit
+	endwin()
 		
-
+if __name__ == "__main__":
+	main()
 			
 			
 
